@@ -1,0 +1,20 @@
+<div class="overlay" (click)="closeMe()">
+  <div class="modal_container"
+  [ngClass]="{
+    'opening' : modalOpening,
+    'closing' : modalClosing
+  }"
+  id="modalContainer"
+  #modalContainer
+  >
+    <h1 class="title">{{ title }}</h1>
+    <p class="body">{{ body }}</p>
+    <div class="btn-container">
+      <button (click)="closeMe()">close</button>
+      <button (click)="confirm()">Confirm</button>
+    </div>
+    <button class="close_btn"(click)="closeMe()" id="closeButton" #close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>

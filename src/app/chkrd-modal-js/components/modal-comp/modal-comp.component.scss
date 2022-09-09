@@ -1,0 +1,95 @@
+.overlay{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_container{
+  position: relative;
+  background-color: white;
+  z-index: 15;
+  width: 500px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  // position: absolute;
+  animation: slideDown 0.3s linear;
+  transition: all 0.3s;
+
+  &.closing{
+    animation: slideUp 0.3s linear;
+    transition: all 0.3s;
+  }
+
+  .btn-container{
+    display: flex;
+
+    button:focus{
+      border: 1px red dashed;
+    }
+  } 
+  button{
+    margin: 5px;
+  }
+
+  .close_btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 700;
+    margin: 1rem;
+    text-decoration: none;
+    text-transform: none;
+
+    &:hover{
+      text-decoration: none;
+      text-transform: none;
+      color: inherit;
+    }
+
+    &:focus{
+      border: 1px red dashed;
+    }
+    // &:focus-visible{
+    //   border: 1px red dashed;
+    // }
+    // &:focus-within{
+    //   border: 1px red dashed;
+    // }
+  }
+}
+
+@keyframes slideDown {
+  0%{
+    transform: translate(0, -50%);
+  }
+  100%{
+    transform: translate(0, 0%);
+    transition: all 0.3s;
+  }
+}
+
+@keyframes slideUp {
+  0%{
+    transform: translate(0, 0%);
+    transition: all 0.3s;
+  }
+  100%{
+    transform: translate(0, -50%);
+  }
+}
