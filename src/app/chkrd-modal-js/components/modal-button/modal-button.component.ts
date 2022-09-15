@@ -1,5 +1,6 @@
 import { Component, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ModalHandlerService } from 'src/app/shared/services/modal-handler.service';
 
 @Component({
   selector: 'app-modal-button',
@@ -11,7 +12,7 @@ export class ModalButtonComponent implements OnInit {
   @Input() modalTitle: string = ''
   @Input() modalBody: string = ''
   @Input() modalButtonText: string = ''
-  // constructor(private modalHandlerServices: ModalHandlerService) { }
+  constructor(private modalHandlerServices: ModalHandlerService) { }
 
   @ViewChild('modal', {read: ViewContainerRef})
   entry!: ViewContainerRef
@@ -20,11 +21,11 @@ export class ModalButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // createModal(){
-  //   this.sub = this.modalHandlerServices
-  //   .openModal(this.entry, this.modalTitle, this.modalBody)
-  //   .subscribe((v: any) => console.log(v))
-  // }
+  createModal(){
+    this.sub = this.modalHandlerServices
+    .openModal(this.entry, this.modalTitle, this.modalBody)
+    .subscribe((v: any) => console.log(v))    
+  }
 
   ngOnDestroy(): void {
     if (this.sub) this.sub.unsubscribe()
